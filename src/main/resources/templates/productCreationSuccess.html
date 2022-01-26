@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html class="text-primary" style="background: #efca6b;">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Home - T & K</title>
+    <link th:rel="stylesheet" th:href="@{/assets/bootstrap/css/bootstrap.min.css} "/>
+<link th:rel="stylesheet" th:href="@{/assets/fonts/font-awesome.min.css}">
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html class="text-primary" style="background: #efca6b;">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Home - T & K</title>
+    <link th:rel="stylesheet" th:href="@{/assets/bootstrap/css/bootstrap.min.css} "/>
+<link th:rel="stylesheet" th:href="@{/assets/fonts/font-awesome.min.css}">
+    <link th:rel="stylesheet" th:href="@{/assets/fonts/ionicons.min.css}">
+    <link th:rel="stylesheet" th:href="@{/assets/css/styles.min.css}">
+
+</head><body style="background: linear-gradient(rgba(47, 23, 15, 0.65), rgba(47, 23, 15, 0.65));">
+    <h1 class="text-center text-white d-none d-lg-block site-heading">
+        <span class="text-primary site-heading-upper mb-3">ADVENTURE TOUR PACKAGES&nbsp;</span>
+        <span class="site-heading-lower">GO AWAY AND EXPLORE</span>
+    </h1><nav class="navbar navbar-dark navbar-expand-lg bg-dark py-lg-4" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand text-uppercase d-lg-none text-expanded" href="#">T & K</a>
+            <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navbarResponsive">
+                <span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link"  th:href="@{/}">Home</a>
+                    </li>
+                
+                    <li class="nav-item"><a class="nav-link" href="#">About us</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/products}">Packages</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Reviews</a></li>
+                </ul><a th:href="@{/registration/}">Register</a>
+            </div>
+        </div>
+    </nav><section class="page-section"><div class="container">
+
+    <div class="product-item"><div class="d-flex product-item-title">
+
+        <div class="d-flex me-auto bg-faded p-5 rounded"><h2 class="section-heading mb-0">
+            <span class="section-heading-upper">PLANNED to Perfection</span>
+            <span class="section-heading-lower">TOUR PACKAGES</span></h2></div></div>
+
+    <img class="img-fluid d-flex mx-auto product-item-img mb-3 mb-lg-0 rounded" th:src="@{/assets/img/products-01.jpg}">
+    <div class="bg-faded p-5 rounded"><p class="mb-0">We take pride in our work, and it shows. Every time you book a tour from us, we guarantee that it will be an experience worth having. We provide this service for individual and group. Through our in-depth knowledge and experience, we provide this excellent adventure tour service to the clients. Our offered service is highly demanded among clients for flexibility and reliability. This service is rendered within stipulated time frame and is offered at very reasonable price to the clients.</p></div></div></div></section><section class="page-section"><div class="container"><div class="product-item"><div class="d-flex product-item-title"></div></div></div></section><section class="page-section"><div class="container"><div class="product-item"><div class="bg-faded p-5 rounded"><div class="gift row"><div class="gift__img col-sm-3 col-12">
+
+                            <img th:src="@{/assets/img/Amalfi-Italy.jpg}"><div class="gift__rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star fa-star-half-o"></i><i class="fa fa-star fa-star-o"></i><span class="gift__rating-number">561</span></div></div><div class="gift__info col-sm-9 col-12">
+                            <h4 class="gift__name" th:text="${productModel.tripName}"> </h4><div class="gift__details">
+                            <p th:text="${productModel.tripDes}"</p></div><div class="gift__bottom row"><span style="font-size: 12px;">
+                            <strong>Start Date: </strong><span style="text-decoration: underline;"> <p th:text="${productModel.startDate}"> </p></span></span><div class="gift__price-wrap col-12 col-sm-6"><div class="gift__normal-price"><span>
+                            <strong>Duration :</strong> <p  th:text="${productModel.duration}"> </p></h2>&nbsp;</span></div><div class="gift__today-price"><span>Today's Price:&nbsp;</span>
+                            <span class="gift__data"> <p th:text="${productModel.price}">  </p></span></div><div class="gift__quantity-left"><span><strong>Trip Type:</strong> </span>
+                            <span class="gift__data">  <p th:text="${productModel.tripType}"> </p></span></div></div><div class="gift__cta-wrap col-12 col-sm-6"><a class="flux_cta gift__cta" target="_blank" href="#">Book</a><span class="gift__cta-note">34 users have chosen this package</span></div></div></div><a class="flux_cta gift__cta" target="_blank" href="#" style="margin: 0px;background: rgb(75,175,197);opacity: 0.74;width: 175px;">See Trip Details</a></div></div><div class="bg-faded p-5 rounded"><div class="gift row"><div class="gift__img col-sm-3 col-12">
+          
+                 
+   <script th:src="@{/assets/jquery/jquery.min.js}"></script>
+<script th:src="@{/assets/popper.js/popper.min.js}"></script>
+<script th:src="@{/assets/bootstrap/js/bootstrap.min.js}"></script>
+
+</body>
+</html>
