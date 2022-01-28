@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html class="text-primary" style="background: #efca6b;">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Home - T & K</title>
+    <link th:rel="stylesheet" th:href="@{/assets/bootstrap/css/bootstrap.min.css} "/>
+<link th:rel="stylesheet" th:href="@{/assets/fonts/font-awesome.min.css}">
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<class="text-primary" style="background: #efca6b;">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Home - T & K</title>
+    <link th:rel="stylesheet" th:href="@{/assets/bootstrap/css/bootstrap.min.css} "/>
+<link th:rel="stylesheet" th:href="@{/assets/fonts/font-awesome.min.css}">
+    <link th:rel="stylesheet" th:href="@{/assets/fonts/ionicons.min.css}">
+    <link th:rel="stylesheet" th:href="@{/assets/css/styles.min.css}">
+
+</head><body style="background: linear-gradient(rgba(47, 23, 15, 0.65), rgba(47, 23, 15, 0.65));">
+    <h1 class="text-center text-white d-none d-lg-block site-heading">
+        <span class="text-primary site-heading-upper mb-3">ADVENTURE TOUR PACKAGES&nbsp;</span>
+        <span class="site-heading-lower">GO AWAY AND EXPLORE</span>
+    </h1><nav class="navbar navbar-dark navbar-expand-lg bg-dark py-lg-4" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand text-uppercase d-lg-none text-expanded" href="#">T & K</a>
+            <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navbarResponsive">
+                <span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link"  th:href="@{/}">Home</a>
+                    </li>
+                
+                    <li class="nav-item"><a class="nav-link" href="#">About us</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/products}">Packages</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Reviews</a></li>
+                                       <li class="nav-item"><a class="nav-link" href="#">About us</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/productCreation/admin}">Admin</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </nav><section class="page-section"><div class="container">
+    
+    <h3 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]</h3>
+
+    <div class="product-item"><div class="d-flex product-item-title">
+
+        <div class="d-flex me-auto bg-faded p-5 rounded"><h2 class="section-heading mb-0">
+            <span class="section-heading-upper">PLANNED to Perfection</span>
+            <span class="section-heading-lower">TOUR PACKAGES</span></h2></div></div>
+
+    <img class="img-fluid d-flex mx-auto product-item-img mb-3 mb-lg-0 rounded" th:src="@{/assets/img/products-01.jpg}">
+    <div class="bg-faded p-5 rounded"><p class="mb-0">We take pride in our work, and it shows. Every time you book a tour from us, we guarantee that it will be an experience worth having. We provide this service for individual and group. Through our in-depth knowledge and experience, we provide this excellent adventure tour service to the clients. Our offered service is highly demanded among clients for flexibility and reliability. This service is rendered within stipulated time frame and is offered at very reasonable price to the clients.</p></div></div></div></section><section class="page-section"><div class="container"><div class="product-item"><div class="d-flex product-item-title"></div></div></div></section><section class="page-section">
+    <div class="container"><div class="product-item"><div class="bg-faded p-5 rounded">
+    <div class="gift row"><div class="gift__img col-sm-3 col-12">
+
+  <body><div layout:fragment="content" class="container-xl">
+
+  </h2>
+  <table class="table table-striped"><tr class="table-primary">
+  <th>ID</th><th>Trip Name</th><th>Destination</th><th>Start Date</th><th>Duration</th><th>Price</th><th>Trip Type</th><th>
+  <th>Delete</th><th>Edit</th></tr>
+  <tr th:each="product : ${products}">
+  <td th:text="${product.id}"></td>
+  <td th:text="${product.tripName}"></td>
+  <td th:text="${product.tripDes}"></td>
+   <td th:text="${product.startDate}"></td>
+  <td th:text="${product.duration}"></td>
+   <td th:text="${product.price}"></td>
+  <td th:text="${product.tripType}"></td>
+  <td><form action="#" th:action="@{/productCreation/delete/}" th:object="${product}" method="post"> 
+   <input name="id" type="hidden" th:value="${product.id}">
+  <input name="tripName"type="hidden" th:value="${product.tripName}">
+     <input name="tripDes"type="hidden" th:value="${product.tripDes}">
+     <input name="duration" type="hidden" th:value="${product.duration}">
+     <input name="price" type="hidden"  th:value="${product.price}">
+       <input name="tripType" type="hidden"  th:value="${product.tripType}">
+   <button class="btn btn-danger" type="submit" name="deleteItem">Delete</button>
+   </form>
+   </td>
+   <td><form action="#" th:action="@{/productCreation/editForm/}" th:object="${product}" method="post"> 
+   <input name="id" type="hidden" th:value="${product.id}">
+    <input name="tripName"type="hidden" th:value="${product.tripName}">
+     <input name="tripDes"type="hidden" th:value="${product.tripDes}">
+   <input name="startDate"type="hidden" th:value="${product.startDate}">
+     <input name="duration" type="hidden" th:value="${product.duration}">
+     <input name="price" type="hidden"  th:value="${product.price}">
+       <input name="tripType" type="hidden"  th:value="${product.tripType}">
+     <button class="btn btn-secondary" type="submit" name="deleteItem">Edit</button>
+   </form>
+   </td></tr> 
+   </table>
+   </div>
+          
+   <script th:src="@{/assets/jquery/jquery.min.js}"></script>
+<script th:src="@{/assets/popper.js/popper.min.js}"></script>
+<script th:src="@{/assets/bootstrap/js/bootstrap.min.js}"></script>
+
+</body>
+</html>
+
+     

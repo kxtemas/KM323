@@ -11,6 +11,8 @@ public interface ProductBusinessInterface {
 	public void destroy();
 	public int addOne(ProductModel newProduct);
 	public List <ProductModel> getProduct();
-	//public List<ProductModel> findOneUser(String userName, String password);
+	public boolean deleteOne(int id);
+	public ProductModel updateOne(int idToUpdate, ProductModel updateProduct);
+	public ProductModel getById(int id);
 	
 }

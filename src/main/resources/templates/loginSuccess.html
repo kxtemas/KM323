@@ -28,9 +28,15 @@
                     <li class="nav-item"><a class="nav-link" href="#">About us</a></li>
                     <li class="nav-item"><a class="nav-link" th:href="@{/products}">Packages</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Reviews</a></li>
+                          <li class="nav-item"><a class="nav-link" th:href="@{/productCreation/admin}">Admin </a></li>
+                            </ul><form th:action="@{/logout}" method="post">
+    <input type="submit" value="Logout" />
+</form>
             </div>
         </div>
-    </nav><section class="page-section clearfix">
+    </nav>
+     <h3 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]</h3>
+     <section class="page-section clearfix">
         <div class="container">
             <div class="intro">
                 <img class="img-fluid intro-img mb-3 mb-lg-0 rounded" src="assets/img/intro.jpg">

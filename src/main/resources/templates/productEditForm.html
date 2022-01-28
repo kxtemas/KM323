@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html class="text-primary" style="background: #efca6b;">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Home - T & K</title>
+    <link th:rel="stylesheet" th:href="@{/assets/bootstrap/css/bootstrap.min.css} "/>
+<link th:rel="stylesheet" th:href="@{/assets/fonts/font-awesome.min.css}">
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<class="text-primary" style="background: #efca6b;">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Home - T & K</title>
+    <link th:rel="stylesheet" th:href="@{/assets/bootstrap/css/bootstrap.min.css} "/>
+<link th:rel="stylesheet" th:href="@{/assets/fonts/font-awesome.min.css}">
+    <link th:rel="stylesheet" th:href="@{/assets/fonts/ionicons.min.css}">
+    <link th:rel="stylesheet" th:href="@{/assets/css/styles.min.css}">
+
+</head><body style="background: linear-gradient(rgba(47, 23, 15, 0.65), rgba(47, 23, 15, 0.65));">
+    <h1 class="text-center text-white d-none d-lg-block site-heading">
+        <span class="text-primary site-heading-upper mb-3">ADVENTURE TOUR PACKAGES&nbsp;</span>
+        <span class="site-heading-lower">GO AWAY AND EXPLORE</span>
+    </h1><nav class="navbar navbar-dark navbar-expand-lg bg-dark py-lg-4" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand text-uppercase d-lg-none text-expanded" href="#">T & K</a>
+            <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navbarResponsive">
+                <span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link"  th:href="@{/}">Home</a>
+                    </li>
+                
+                    <li class="nav-item"><a class="nav-link" href="#">About us</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/products}">Packages</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Reviews</a></li>
+                          <li class="nav-item"><a class="nav-link" th:href="@{/productCreation/admin}">Admin </a></li>
+               </ul><form th:action="@{/logout}" method="post">
+    <input type="submit" value="Logout" />
+</form>
+            </div>
+        </div>
+    </nav>
+     <h3 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]</h3>
+     <section class="page-section"><div class="container">
+
+    <div class="product-item"><div class="d-flex product-item-title">
+
+        <div class="d-flex me-auto bg-faded p-5 rounded"><h2 class="section-heading mb-0">
+            <span class="section-heading-upper">PLANNED to Perfection</span>
+            <span class="section-heading-lower">TOUR PACKAGES</span></h2></div></div>
+
+    <img class="img-fluid d-flex mx-auto product-item-img mb-3 mb-lg-0 rounded" th:src="@{/assets/img/products-01.jpg}">
+    <div class="bg-faded p-5 rounded"><p class="mb-0">We take pride in our work, and it shows. Every time you book a tour from us, we guarantee that it will be an experience worth having. We provide this service for individual and group. Through our in-depth knowledge and experience, we provide this excellent adventure tour service to the clients. Our offered service is highly demanded among clients for flexibility and reliability. This service is rendered within stipulated time frame and is offered at very reasonable price to the clients.</p></div></div></div></section><section class="page-section"><div class="container"><div class="product-item"><div class="d-flex product-item-title"></div></div></div></section><section class="page-section">
+    <div class="container"><div class="product-item"><div class="bg-faded p-5 rounded">
+    <div class="gift row"><div class="gift__img col-sm-3 col-12">
+
+  <body><div layout:fragment="content" class="container-xl">
+
+  </h2>
+  <table class="table table-striped"><tr class="table-primary">
+ <div layout:fragment="content"><form action="#" th:action="@{/productCreation/doUpdate}"
+  th:object="${productModel}" method="post">  
+   <div class="container"> 
+   <input type="hidden" th:field="${productModel.id}" name="id">
+    <div class="input-group input-group-lg"> 
+     <span class="input-group-text" id="inputGroup-sizing-lg">Trip Name</span>
+       <input type="text" class="form-control" aria-label="Sizing example input" 
+       aria-describedby="inputGroup-sizing-lg" th:field="*{tripName}" placeholder = "Trip Name" 
+       name="tripName" required>  
+       <div class="fieldError"><p th:if="${#fields.hasErrors('tripName')}" th:errors="*{tripName}">Order Number Error</p>
+       </div></div><div class="input-group input-group-lg">  
+       <span class="input-group-text" id="inputGroup-sizing-lg">Trip Description</span>  
+       <input type="text" class="form-control" aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-lg" th:field="*{tripDes}" placeholder = "Description" 
+        name="tripDes" required>  <div class="fieldError"><p th:if="${#fields.hasErrors('tripDes')}" 
+        th:errors="*{tripDes}">Trip Des Error</p></div>
+        </div><div class="input-group input-group-lg"> 
+            <span class="input-group-text" id="inputGroup-sizing-lg">Start Date</span> 
+             <input type="text" class="form-control" aria-label="Sizing example input" 
+             aria-describedby="inputGroup-sizing-lg" th:field="*{startDate}" placeholder = "StartDate" name="startDate" required> 
+              <div class="fieldError"><p th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}">Start Date Error</p>
+               <span class="input-group-text" id="inputGroup-sizing-lg">Duration</span> 
+             <input type="text" class="form-control" aria-label="Sizing example input" 
+             aria-describedby="inputGroup-sizing-lg" th:field="*{duration}" placeholder = "duration" name="duration" required> 
+              <div class="fieldError"><p th:if="${#fields.hasErrors('duration')}" th:errors="*{duration}">Duration Error</p>
+               <span class="input-group-text" id="inputGroup-sizing-lg">Price</span> 
+          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" 
+          th:field="*{price}" placeholder = " Price" name="price" required> 
+           <div class="fieldError"><p th:if="${#fields.hasErrors('price')}" 
+           th:errors="*{price}">Price Error</p></div></div><div class="input-group input-group-lg">
+               <span class="input-group-text" id="inputGroup-sizing-lg">Trip Type</span> 
+             <input type="text" class="form-control" aria-label="Sizing example input" 
+             aria-describedby="inputGroup-sizing-lg" th:field="*{tripType}" placeholder = "TripType" name="tripType" required> 
+              <div class="fieldError"><p th:if="${#fields.hasErrors('tripType')}" th:errors="*{tripType}">Trip Type Error</p>
+              </div></div>     <button type="submit" class="btn btn-primary">Update</button>
+                  </div>   <div th:if="${#fields.hasErrors('*')}">List of Errors</div>
+                  <div th:each="err : ${#fields.errors('*')}"><span th:text="${err}" class="fieldError">
+                  </span></div>  
+                </div>     
+                </form> 
+                </div>     
+   <script th:src="@{/assets/jquery/jquery.min.js}"></script>
+<script th:src="@{/assets/popper.js/popper.min.js}"></script>
+<script th:src="@{/assets/bootstrap/js/bootstrap.min.js}"></script>
+
+</body>
+</html>

@@ -1,0 +1,166 @@
+!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Home - T & K</title>
+    <link th:rel="stylesheet" th:href="@{/assets/bootstrap/css/bootstrap.min.css} "/>
+<link th:rel="stylesheet" th:href="@{/assets/fonts/font-awesome.min.css}">
+    <link th:rel="stylesheet" th:href="@{/assets/fonts/ionicons.min.css}">
+    <link th:rel="stylesheet" th:href="@{/assets/css/styles.min.css}">
+
+</head>
+<style>
+   body {font-family: Arial, Helvetica, sans-serif;}
+   form {
+		border: 3px solid #ccc;
+		}
+		
+	input [type=text], input [type=password]{
+		width: 100%;
+		padding: 12px 20px;
+		display: inline-block;
+		border: 1px solid #ccc;
+		box-sizing: border-box;
+		border-radius:4px;
+	}
+	
+	button{
+		background-color: #04AA6D;
+		color: white;
+		padding: 14px 20px;
+		margin: 8px 0;
+		border: none;
+		cursor: pointer;
+		width: 100%;
+		border-radius: 4px;
+	}
+	
+	button:hover{
+		opacity: 0.0;
+	}
+	
+	.cancelbtn{
+		width:auto;
+		padding: 10px 18px;
+		background-color:#f44336;
+	}
+	
+	.imgcontainer{
+		text-align:center;
+		margin: 24px 0 12px 0;
+	}
+	
+	img.avatar{
+		width: 40%;
+		max-width:300px;
+		border-radius: 50%;
+	}
+	
+	.container {
+		padding:16px;
+	}
+	
+	span.psw{
+		float: right;
+		padding-top: 16px;
+	}
+	.fieldError{
+		color:red;
+	}
+	</style>
+
+<body style="background: linear-gradient(rgba(47, 23, 15, 0.65), rgba(47, 23, 15, 0.65));">
+    <h1 class="text-center text-white d-none d-lg-block site-heading">
+        <span class="text-primary site-heading-upper mb-3">ADVENTURE TOUR PACKAGES&nbsp;</span>
+        <span class="site-heading-lower">GO AWAY AND EXPLORE</span>
+    </h1><nav class="navbar navbar-dark navbar-expand-lg bg-dark py-lg-4" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand text-uppercase d-lg-none text-expanded" href="#">T & K</a>
+            <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navbarResponsive">
+                <span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link"  th:href="@{/}">Home</a>
+                    </li>
+                
+                    <li class="nav-item"><a class="nav-link" href="#">About us</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/products}">Packages</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Reviews</a></li>
+               <li class="nav-item"><a class="nav-link" th:href="@{/productCreation/admin}">Admin </a></li>
+                    </ul>
+            </div>
+        </div>
+    </nav><section class="page-section"><div class="container">
+
+    <div class="product-item"><div class="d-flex product-item-title">
+
+        <div class="d-flex me-auto bg-faded p-5 rounded"><h2 class="section-heading mb-0">
+            <span class="section-heading-upper">PLANNED to Perfection</span>
+            <span class="section-heading-lower">TOUR PACKAGES</span></h2></div></div>
+
+    <img class="img-fluid d-flex mx-auto product-item-img mb-3 mb-lg-0 rounded" th:src="@{/assets/img/products-01.jpg}">
+   <div class="container"><div class="product-item"><div class="bg-faded p-5 rounded">
+    <div class="gift row"><div class="gift__img  col-12">
+
+   <body style="background: linear-gradient(rgba(47, 23, 15, 0.65), rgba(47, 23, 15, 0.65));">><div layout:fragment="content" class="container-xl">
+	
+<class="form-container"><form action="#" th:action="@{/productCreation/doUpdate}"
+  th:object="${productModel}" method="post">
+<h2 class="text-center"><strong>Edit</strong> a trip package</h2>
+   <input type="hidden" th:field="${productModel.id}" name="id">
+    <div class="input-group input-group-lg"> 
+<div class="mb-3"><strong>Trip Name</strong><input class="form-control" type="text"th:field="*{tripName}" placeholder = "Trip Name" 
+       name="tripName" required>  
+       <div class="fieldError"><p th:if="${#fields.hasErrors('tripName')}" th:errors="*{tripName}">Order Number Error</p>
+       </div></div>
+</br>
+<div class="mb-3"><strong>Description</strong><input class="form-control" type="text" th:field="*{tripDes}" placeholder = "Description" 
+        name="tripDes" required>  <div class="fieldError"><p th:if="${#fields.hasErrors('tripDes')}" 
+        th:errors="*{tripDes}">Trip Des Error</p></div>
+        </div>
+				<div class="mb-3"><strong>Start Date</strong><input class="form-control"  type="text" th:field="*{startDate}" placeholder = "StartDate" name="startDate" required> 
+              <div class="fieldError"><p th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}">Start Date Error</p>
+				</div></div>
+<div class="mb-3"><strong>Duratione</strong><input class="form-control"  type="text" th:field="*{duration}" placeholder = "duration" name="duration" required> 
+              <div class="fieldError"><p th:if="${#fields.hasErrors('duration')}" th:errors="*{duration}">Duration Error</p>
+				</div></div>
+<div class="mb-3"><strong>Price</strong><input class="form-control" <input type="text"  th:field="*{price}" placeholder = " Price" name="price" required> 
+           <div class="fieldError"><p th:if="${#fields.hasErrors('price')}" 
+           th:errors="*{price}">Price Error</p></div></div><div class="input-group input-group-lg">
+				</div></div>
+<div class="mb-3"><strong>Trip Type</strong><input class="form-control" type="text"  th:field="*{tripType}" placeholder = "TripType" name="tripType" required> 
+              <div class="fieldError"><p th:if="${#fields.hasErrors('tripType')}" th:errors="*{tripType}">Trip Type Error</p>
+				</div>
+				
+				<div th:if="${#fields.hasErrors('*')}">List of Errors</div>
+				<div th:each="err : ${#fields.errors('*')}">
+				<span th:text="${err}" class ="fieldError"></span>
+				</div>
+				
+</div><div class="mb-3">
+
+<div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit" style="background: rgba(88,60,24,0.9);">Submit</button></div>
+
+
+<div class="mx-auto intro-button"><a class="btn btn-primary d-inline-block mx-auto btn-xl" role="button" href="#">Book With Us Today!</a></div></div><section class="page-section clearfix"><div class="container">
+<div class="intro"></div></div>
+</section><footer class="text-center footer text-faded py-5">
+
+<div class="container"><p class="m-0 small">Copyright&nbsp;©&nbsp;Brand 2021</p>
+</div></footer>
+			
+				
+				
+			
+			<div class ="container" style ="background-color:#ddd">
+			
+
+<script th:src="@{/assets/jquery/jquery.min.js}"></script>
+<script th:src="@{/assets/popper.js/popper.min.js}"></script>
+<script th:src="@{/assets/bootstrap/js/bootstrap.min.js}"></script>
+
+</body >
+</html>

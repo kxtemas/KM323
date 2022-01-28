@@ -45,11 +45,25 @@ public class ProductBusinessService implements ProductBusinessInterface {
 		return productDAO.getProduct();
 	}
 
-//	@Override
-//	public List<RegistrationModel> findOneUser(String userName, String password) {
-//		// TODO Auto-generated method stub
-//		return userDAO.findOneUser(userName, password);
-//	}
+	@Override
+	public boolean deleteOne(int id) {
+		// TODO Auto-generated method stub
+		return productDAO.deleteOne(id);
+	}
+
+	@Override
+	public ProductModel updateOne(int idToUpdate, ProductModel updateProduct) {
+		// TODO Auto-generated method stub
+		return productDAO.updateOne(idToUpdate, updateProduct);
+	}
+
+	@Override
+	public ProductModel getById(int id) {
+		// TODO Auto-generated method stub
+		return productDAO.getById(id);
+	}
+
+
 	
 	
 

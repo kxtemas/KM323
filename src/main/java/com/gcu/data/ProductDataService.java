@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-
 import com.gcu.model.ProductModel;
 
 
@@ -19,18 +18,20 @@ public class ProductDataService implements ProductDataAccessInterface {
 	DataSource dataSource;
 	JdbcTemplate jdbcTemplate;
 	
+	// Connect to the datasource constructor
 	public ProductDataService(DataSource dataSource) {	
 		this.dataSource = dataSource;
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 	
-	
+	// Get all products
 	@Override
 	public List<ProductModel> getProduct() {
-		return jdbcTemplate.query("select username, password from users",
+		return jdbcTemplate.query("select * from product",
 				new ProductMapper());
 	}
 
+	// Add one product to the database
 	@Override
 	public int addOne(ProductModel newProduct) {
 		return jdbcTemplate.update(
@@ -45,16 +46,43 @@ public class ProductDataService implements ProductDataAccessInterface {
 				);
 	}
 
+	@Override
+	public boolean deleteOne(int id) {
+		int updateResult = jdbcTemplate.update(
+				"delete from product where id = ?",
+				new Object[] {id});
+		return (updateResult > 0);
+	}
 
-//	@Override
-//	public List<RegistrationModel> findOneUser(String userName, String password) 
-//	{
-//		System.out.println(userName + " " + password);
-//		return jdbcTemplate.query("select * from users WHERE username = ? AND password = ?",
-//				new RegistrationMapper(),
-//				 userName ,
-//				 password
-//		);
-//	}
+	@Override
+	public ProductModel updateOne(int idToUpdate, ProductModel updateProduct) {
+		int result = jdbcTemplate.update(
+				"update product set tripName = ?, tripDes = ?, startDate = ?, duration = ?, price = ?, tripType = ? where id = ?",
+				updateProduct.getTripName(),
+				updateProduct.getTripDes(),
+				updateProduct.getStartDate(),
+				updateProduct.getDuration(),
+				updateProduct.getPrice(),
+				updateProduct.getTripType(),
+				idToUpdate );
+		if (result > 0) {
+			return updateProduct;
+		}
+		else {
+			return null;
+		}
+	}
+
+	@Override
+	public ProductModel getById(int id) {
+		ProductModel result = jdbcTemplate.queryForObject("select * from product where id = ?",
+				new ProductMapper(),
+				new Object[] {id}
+		);
+		return result;
+	}
+
+
+
 
 }
