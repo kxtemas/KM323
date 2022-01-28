@@ -1,0 +1,150 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Spring Boot Thymeleaf - Bootstrap Static Files</title>
+
+    <link th:rel="stylesheet" th:href="@{/assets/bootstrap/css/bootstrap.min.css} "/>
+</head>
+<style>
+   body {font-family: Arial, Helvetica, sans-serif;}
+   form {
+		border: 3px solid #ccc;
+		}
+		
+	input [type=text], input [type=password]{
+		width: 100%;
+		padding: 12px 20px;
+		display: inline-block;
+		border: 1px solid #ccc;
+		box-sizing: border-box;
+		border-radius:4px;
+	}
+	
+	button{
+		background-color: #04AA6D;
+		color: white;
+		padding: 14px 20px;
+		margin: 8px 0;
+		border: none;
+		cursor: pointer;
+		width: 100%;
+		border-radius: 4px;
+	}
+	
+	button:hover{
+		opacity: 0.0;
+	}
+	
+	.cancelbtn{
+		width:auto;
+		padding: 10px 18px;
+		background-color:#f44336;
+	}
+	
+	.imgcontainer{
+		text-align:center;
+		margin: 24px 0 12px 0;
+	}
+	
+	img.avatar{
+		width: 40%;
+		max-width:300px;
+		border-radius: 50%;
+	}
+	
+	.container {
+		padding:16px;
+	}
+	
+	span.psw{
+		float: right;
+		padding-top: 16px;
+	}
+	.fieldError{
+		color:red;
+	}
+	</style>
+
+	
+	<body>
+	<div layout:fragment="content">
+		<form action="#" th:action="@{doRegister}" th:object="${registrationModel}" method="post">
+		
+			<body style="background: linear-gradient(rgba(47, 23, 15, 0.65), rgba(47, 23, 15, 0.65));">
+			
+			<h1 class="text-center text-white d-none d-lg-block site-heading">
+			<span class="text-primary site-heading-upper mb-3">Adventure Vacation Tours&nbsp;</span>
+			<span class="site-heading-lower">go away &amp; explore</span></h1>
+			<nav class="navbar navbar-dark navbar-expand-lg bg-dark py-lg-4" id="mainNav">
+			<div class="container"><a class="navbar-brand text-uppercase d-lg-none text-expanded" href="#">T & K</a>
+			<button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navbarResponsive">
+
+<span class="visually-hidden">Toggle navigation</span>
+<span class="navbar-toggler-icon"></span></button>
+
+<div class="collapse navbar-collapse" id="navbarResponsive">
+
+<ul class="navbar-nav mx-auto"><li class="nav-item">
+  <a class="nav-link" th:href="@{/}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">About us</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/products}">Packages</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Reviews</a></li>
+</div></div></nav><section class="register-photo" style="background: rgba(230, 167, 86, 0.9);">
+<div class="form-container"><form method="post">
+<h2 class="text-center"><strong>Create</strong> an account.</h2>
+<div class="mb-3"><input class="form-control" type="email" th:field="*{email}" name="email" placeholder="Enter Email"><div class="fieldError">
+					<p th:if="${#fields.hasErrors('email')}" th:errors="*{email}">email Error</p>
+				</div>
+</br>
+<div class="mb-3"><input class="form-control" type="text" th:field="*{username}" placeholder = "Enter username" name="uname" required>
+				<div class="fieldError">
+					<p th:if="${#fields.hasErrors('username')}" th:errors="*{username}">User Name Error</p>
+				</div></div>
+				<div class="mb-3"><input class="form-control"  type="text" th:field="*{firstName}" placeholder = "Enter firstName" name="fn" required>
+				<div class="fieldError">
+					<p th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">First Name Error</p>
+				</div></div>
+<div class="mb-3"><input class="form-control"  type="text" th:field="*{lastName}" placeholder = "Enter lastName" name="ln" required>
+				<div class="fieldError">
+					<p th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Last Name Error</p>
+				</div></div>
+<div class="mb-3"><input class="form-control" <input type="text" th:field="*{phone}" placeholder = "Enter phone" name="phn" required>
+				<div class="fieldError">
+					<p th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">Phone Error</p>
+				</div></div>
+</div><div class="mb-3"><input class="form-control" type="text" th:field="*{password}" placeholder = "Enter password" name="psw" required>
+				<div class="fieldError">
+					<p th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</p>
+				</div>
+				
+				<div th:if="${#fields.hasErrors('*')}">List of Errors</div>
+				<div th:each="err : ${#fields.errors('*')}">
+				<span th:text="${err}" class ="fieldError"></span>
+				</div>
+				
+</div><div class="mb-3">
+<div class="form-check"><label class="form-check-label"><input class="form-check-input" type="checkbox">I agree to the license terms.</label></div></div>
+<div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit" style="background: rgba(88,60,24,0.9);">Sign Up</button></div>
+<a class="already" href="login.html">You already have an account? Login here.</a></form></div></section><div class="text-center intro-text p-5 rounded bg-faded">
+<h2 class="section-heading mb-4"><span class="section-heading-upper">Tour Packages</span><span class="section-heading-lower">Worth Exploring</span></h2>
+<p class="mb-3">Tours are great options to bring some excitement in one’s regular life. It becomes more exciting when the tour is accompanied by some particular theme.</p>
+<div class="mx-auto intro-button"><a class="btn btn-primary d-inline-block mx-auto btn-xl" role="button" href="#">Book With Us Today!</a></div></div><section class="page-section clearfix"><div class="container">
+<div class="intro"></div></div>
+</section><footer class="text-center footer text-faded py-5">
+
+<div class="container"><p class="m-0 small">Copyright&nbsp;©&nbsp;Brand 2021</p>
+</div></footer>
+			
+				
+				
+			
+			<div class ="container" style ="background-color:#ddd">
+			
+
+<script th:src="@{/assets/jquery/jquery.min.js}"></script>
+<script th:src="@{/assets/popper.js/popper.min.js}"></script>
+<script th:src="@{/assets/bootstrap/js/bootstrap.min.js}"></script>
+
+</body>
+</html>
