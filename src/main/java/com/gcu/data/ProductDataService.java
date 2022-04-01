@@ -1,14 +1,18 @@
 package com.gcu.data;
 
+import java.util.ArrayList;
+
 import java.util.List; 
 
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Repository;
 
 import com.gcu.model.ProductModel;
+
 
 
 @Repository
@@ -30,6 +34,10 @@ public class ProductDataService implements ProductDataAccessInterface {
 		return jdbcTemplate.query("select * from product",
 				new ProductMapper());
 	}
+	
+		
+
+	
 
 	// Add one product to the database
 	@Override

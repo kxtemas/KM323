@@ -3,8 +3,12 @@ package com.gcu;
 import java.util.List;
 
 
+
+
+
 import javax.validation.Valid;
 
+import org.hibernate.validator.internal.util.logging.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,7 +18,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.gcu.business.ProductBusinessInterface;
+import com.gcu.business.ProductBusinessService;
 import com.gcu.model.ProductModel;
+
+import ch.qos.logback.classic.Logger;
 
 @Controller
 @RequestMapping("/productCreation")
@@ -30,27 +37,28 @@ public class ProductCreationController {
 		model.addAttribute("title", "ProductCreation Form");
 		model.addAttribute("productModel", new ProductModel());
 		return "productCreation";
+	
 	}
 	
 	@PostMapping("/doProduct")
-	public String doLogin(@Valid ProductModel productModel,BindingResult bindingResult, Model model)
+	public String doLogin(@Valid ProductModel productModel, Model model)
 	{
 		// Check for validation errors
-		if (bindingResult.hasErrors())
-		{
-			model.addAttribute("title", "ProductCreation Form");
-			return "productCreation";
-		}
+//		if (bindingResult.hasErrors())
+//		{
+//			model.addAttribute("title", "ProductCreation Form");
+//			return "productCreation";
+//		}
 		
 		
 		productService.test();
-		// Add one product
 		productService.addOne(productModel);
 		
 		model.addAttribute("productModel", productModel);
 		return "productCreationSuccess";
 		
 	}
+	
 	@GetMapping("/admin")
 	public String showOrdersForAdmin( Model model) 
 	{  

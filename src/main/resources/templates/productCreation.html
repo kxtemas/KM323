@@ -94,13 +94,14 @@
                          
 </form>
 </div></div></nav>
- <h3 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]</h3>
+ <h3 th:inline="text">Welcome </h3>
  <section class="register-photo" style="background: rgba(230, 167, 86, 0.9);">
 <div class="form-container"><form method="post">
 <h2 class="text-center"><strong>Create</strong> a trip package</h2>
-<div class="mb-3"><input class="form-control" type="text" th:field="*{tripName}" name="tripN" placeholder="Enter Trip Name"><div class="fieldError">
+<div class="mb-3"><input class="form-control" type="text" th:field="*{tripName}" name="tripName" placeholder="Enter Trip Name"><div class="fieldError">
 					<p th:if="${#fields.hasErrors('tripName')}" th:errors="*{tripName}">Trip Name Error</p>
 				</div>
+</div>
 </br>
 <div class="mb-3"><input class="form-control" type="text" th:field="*{tripDes}" placeholder = "Enter Trip Description" name="tripD" required>
 				<div class="fieldError">
